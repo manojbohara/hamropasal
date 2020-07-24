@@ -8,6 +8,7 @@
   <title>@yield('title')</title>
 
   <!-- Font Awesome Icons -->
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <link rel="stylesheet" href="{{ asset('hamropasal/backend/plugins/fontawesome-free/css/all.min.css')}}">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="{{ asset('hamropasal/backend/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
@@ -15,6 +16,13 @@
   <link rel="stylesheet" href="{{ asset('hamropasal/backend/dist/css/adminlte.min.css')}}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <link rel="stylesheet" href="{{ asset('hamropasal/backend/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
+  <link rel="stylesheet" href="{{ asset('hamropasal/backend/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
+   <!-- Select2 -->
+  <link rel="stylesheet" href="{{ asset('hamropasal/backend/plugins/select2/css/select2.min.css')}}">
+  <link rel="stylesheet" href="{{ asset('hamropasal/backend/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
+  <!-- summernote -->
+  <link rel="stylesheet" href="{{ asset('hamropasal/backend/plugins/summernote/summernote-bs4.css')}}">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
@@ -71,8 +79,16 @@
 <script src="{{ asset('hamropasal/backend/plugins/jquery-mapael/maps/usa_states.min.js')}}"></script>
 <!-- ChartJS -->
 <script src="{{ asset('hamropsal/backend/plugins/chart.js/Chart.min.js')}}"></script>
-
+<!-- DataTables -->
+<script src="{{ asset('hamropasal/backend/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+<script src="{{ asset('hamropasal/backend/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+<script src="{{ asset('hamropasal/backend/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
+<script src="{{ asset('hamropasal/backend/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
+<!-- AdminLTE App -->
 <!-- PAGE SCRIPTS -->
 <script src="{{ asset('hamropasal/backend/dist/js/pages/dashboard2.js')}}"></script>
+<script src="{{ asset('hamropasal/backend/plugins/select2/js/select2.full.min.js')}}"></script>
+<!-- Summernote -->
+<script src="{{ asset('hamropasal/backend/plugins/summernote/summernote-bs4.min.js')}}"></script>
 </body>
 </html>

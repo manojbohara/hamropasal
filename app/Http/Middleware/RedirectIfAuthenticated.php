@@ -19,10 +19,10 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if ($guard == "admin" && Auth::guard($guard)->check()) {
-            return redirect('/admin/dashboard');
+            return redirect('/hamropasal/admin/dashboard');
         }
         if ($guard == "merchant" && Auth::guard($guard)->check()) {
-            return redirect('/merchant/dashboard');
+            return redirect('/hamropasal/merchant/dashboard');
         }
         if (Auth::guard($guard)->check()) {
             return redirect(RouteServiceProvider::HOME);
