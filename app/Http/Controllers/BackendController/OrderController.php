@@ -17,7 +17,7 @@ class OrderController extends Controller
     public function index()
     {
         $orders = Order::all();
-        return view('backen.orders.index',compact('orders'));
+        return view('backend.orders.index',compact('orders'));
     }
 
     /**
@@ -49,7 +49,8 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        //
+        $order = Order::findOrFail($id);
+        return view('backend.orders.show',compact('order'));
     }
 
     /**
