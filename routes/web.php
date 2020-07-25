@@ -37,7 +37,6 @@ Route::resource('categories','CategoryController');
 Route::resource('subcategories','SubcategoryController');
 Route::resource('/products','ProductController');
 Route::resource('/coupons','CouponController');
-
 Route::resource('banners','BannerController');
 Route::resource('sizes','SizeController');
 Route::resource('colors','ColorController');

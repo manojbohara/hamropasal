@@ -295,22 +295,20 @@
                   <thead>
                   <tr>
                     <th>Order ID</th>
-                    <th>Item</th>
-                    <th>Status</th>
                     <th>Name</th>
+                    <th>Amount</th>
+                    <th>Status</th>
                   </tr>
                   </thead>
                   <tbody>
                   @foreach($orders as $order)
                   <tr>
-                    <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                    @foreach($order->products as $product)
-                    <td>{{$product->product_name}}</td>
-                    @endforeach
-                    <td><span class="badge badge-success">{{$order->shipped === 0 ? 'pending' :'shipped'}}</span></td>
+                    <td><a href="pages/examples/invoice.html">ORHP{{$order->id}}</a></td>
+                    <td>{{$order->name}}</td>
                     <td>
-                      <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
+                      <div class="sparkbar" data-color="#00a65a" data-height="20">{{$order->billing_total}}</div>
                     </td>
+                    <td><span class="badge badge-success">{{$order->shipped === 0 ? 'pending' :'shipped'}}</span></td>
                   </tr>
                   @endforeach
                   </tbody>
