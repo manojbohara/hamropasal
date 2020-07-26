@@ -15,7 +15,7 @@ class AdminController extends Controller
 {
     public function index()
     {
-    	$orders = Order::distinct('email')->get();
+    	$orders = Order::distinct('email')->take(6)->get();
         $merchants = Merchant::all();
         $amount = DB::table('orders')->where(DB::raw('MONTH(created_at)'), '=', date('n'))->sum('billing_total');
          $customers = User::where( DB::raw('MONTH(created_at)'), '=', date('n') )->get();

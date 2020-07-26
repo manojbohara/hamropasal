@@ -41,4 +41,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(BlogComment::class);
     }
+
+
+    public function wishlist()
+    {
+        return $this->hasMany(Model\WishList::class);
+    }
 }

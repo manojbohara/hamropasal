@@ -1,15 +1,16 @@
 @extends('frontend.layouts.app')
-@section('title' ,$categoryName)
+@section('title','HamroPasal | WishList')
 @section('content')
- <div class="linking">
+  <!-- Linking -->
+  <div class="linking">
     <div class="container">
       <ol class="breadcrumb">
-        <li><a href="#">Home</a></li>
-        <li class="active">{{$categoryName}}</li>
+        <li><a href="{{url('/')}}">Home</a></li>
+        <li class="active">WishList</li>
       </ol>
     </div>
   </div>
-  @include('sweetalert::alert')
+   @include('sweetalert::alert')
   <!-- Content -->
   <div id="content"> 
     
@@ -23,30 +24,66 @@
             <div class="shop-side-bar"> 
               
               <!-- Categories -->
-              @if($subcat->count())
-              <h6>Subcategories</h6>
+              <h6>Categories</h6>
               <div class="checkbox checkbox-primary">
                 <ul>
-                  @forelse($subcat as $subcat)
                   <li>
                     <input id="cate1" class="styled" type="checkbox" >
-                    <label for="cate1">{{ $subcat->name}}</label>
+                    <label for="cate1"> Home Audio & Theater </label>
                   </li>
-                  @empty
-                  @endforelse
+                  <li>
+                    <input id="cate2" class="styled" type="checkbox" >
+                    <label for="cate2"> TV & Video</label>
+                  </li>
+                  <li>
+                    <input id="cate3" class="styled" type="checkbox" >
+                    <label for="cate3"> Camera, Photo & Video</label>
+                  </li>
+                  <li>
+                    <input id="cate4" class="styled" type="checkbox" >
+                    <label for="cate4"> Cell Phones & Accessories</label>
+                  </li>
+                  <li>
+                    <input id="cate5" class="styled" type="checkbox" >
+                    <label for="cate5"> Headphones</label>
+                  </li>
+                  <li>
+                    <input id="cate6" class="styled" type="checkbox" >
+                    <label for="cate6"> Video Games</label>
+                  </li>
+                  <li>
+                    <input id="cate7" class="styled" type="checkbox" >
+                    <label for="cate7"> Bluetooth & Wireless Speakers</label>
+                  </li>
+                  <li>
+                    <input id="cate8" class="styled" type="checkbox" >
+                    <label for="cate8"> Gaming Console</label>
+                  </li>
+                  <li>
+                    <input id="cate9" class="styled" type="checkbox" >
+                    <label for="cate9"> Computers & Tablets</label>
+                  </li>
+                  <li>
+                    <input id="cate10" class="styled" type="checkbox" >
+                    <label for="cate10"> Monitors</label>
+                  </li>
+                  <li>
+                    <input id="cate11" class="styled" type="checkbox" >
+                    <label for="cate11"> Home Appliances</label>
+                  </li>
+                  <li>
+                    <input id="cate12" class="styled" type="checkbox" >
+                    <label for="cate12">Office Supplies </label>
+                  </li>
                 </ul>
               </div>
-              @endif
               
               <!-- Categories -->
               <h6>Price</h6>
               <!-- PRICE -->
               <div class="cost-price-content">
-                <div id="price-range" class="price-range"></div> 
-                <input type="text" name="minprice" class="price-min" id="price-min">
-                <input type="text" name="maxprice" class="price-max" id="price-max" >
-                <button class="btn-round">Filter</button>
-              </div>
+                <div id="price-range" class="price-range"></div>
+                <span id="price-min" class="price-min">20</span> <span id="price-max" class="price-max">80</span> <a href="#." class="btn-round" >Filter</a> </div>
               
               <!-- Featured Brands -->
               <h6>Featured Brands</h6>
@@ -103,8 +140,8 @@
                 </ul>
               </div>
               
-              <!-- Colors -->
-              <h6>Size</h6>
+              <!-- Rating -->
+              <h6>Rating</h6>
               <div class="rating">
                 <ul>
                   <li><a href="#."><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i> <span>(218)</span></a></li>
@@ -164,13 +201,11 @@
             
             <!-- Short List -->
             <div class="short-lst">
-              <h2>
-              {{$categoryName}}
-            </h2>
+              <h2>Wishlist</h2>
               <ul>
                 <!-- Short List -->
                 <li>
-                  <p>Showing 1–12 of {{$products->count()}} results</p>
+                  <p>Showing 1–12 of 756 results</p>
                 </li>
                 <!-- Short  -->
                 <li >
@@ -182,68 +217,96 @@
                 </li>
                 <!-- by Default -->
                 <li>
-                  @if(request()->routeIs('products.subcategory*'))
-                  <a href="{{route('products.subcategory',['subcategory'=>request()->subcategory,'sort'=>'sort_by_default'])}}">Sort by Default </a>
-                    <a href="{{route('products.subcategory',['subcategory'=>request()->subcategory,'sort'=>'low_high'])}}">Low to High </a>
-                    <a href="{{route('products.subcategory',['subcategory'=>request()->subcategory,'sort'=>'high_low'])}}">High to Low </a>
-                    @else
-                    <a href="{{route('products.category',['category'=>request()->category,'sort'=>'sort_by_default'])}}">Sort by Default </a>
-                    <a href="{{route('products.category',['category'=>request()->category,'sort'=>'low_high'])}}">Low to High </a>
-                    <a href="{{route('products.category',['category'=>request()->category,'sort'=>'high_low'])}}">High to Low </a>
-                    @endif
+                  <select class="selectpicker">
+                    <option>Sort by Default </option>
+                    <option>Sort by Default </option>
+                    <option>Sort by Default</option>
+                  </select>
                 </li>
                 
                 <!-- Grid Layer -->
-                <li class="grid-layer"> <a href="#."><i class="fa fa-list margin-right-10"></i></a> <a href="#." class="active"><i class="fa fa-th"></i></a> </li>
-                <li> 
-                  <!-- Columns -->
-                  <select class="selectpicker">
-                    <option>4 Columns </option>
-                    <option>3 Columns </option>
-                    <option>5 Columns</option>
-                  </select>
-                </li>
+                <li class="grid-layer"> <a href="#."><i class="fa fa-list margin-right-10"></i></a> <a href="#."><i class="fa fa-th"></i></a> </li>
               </ul>
             </div>
             
             <!-- Items -->
-            <div class="item-col-4"> 
+            <div class="col-list">  
+			@if (Auth::user()->wishlist->count() )
+			@forelse ($wishlists as $wishlist)
               <!-- Product -->
-              @forelse ($products as $product)
               <div class="product">
-                <article> <img class="img-responsive" src="{{ asset('hamropasal/product/'.$product->image) }}" alt="" > <span class="sale-tag">-25%</span> 
-                  
-                  <!-- Content --> 
-                  <span class="tag">
-                    @if($product->subcategories)
-                    {{ $product->subcategories->name}}
-                    @else
-                    {{$product->categories->name}}
-                    @endif
-                  </span> <a href="{{route('products.show',['product' =>$product->slug])}}" class="tittle">{{ $product->product_name}}</a> 
-                  <!-- Reviews -->
-                  <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> <i class="fa fa-star"></i> <span class="margin-left-10">5 Review(s)</span></p>
-                  <div class="price">Rs {{ $product->discount_price}} <span>Rs {{ $product->original_price}}</span></div>
-                  <form action="{{ route('cart.store') }}" method="POST">
-                    @csrf
-                   <input type="hidden" value="{{ $product->id }}" id="id" name="id">
-                    <input type="hidden" value="{{ $product->product_name }}" id="name" name="name">
-                    <input type="hidden" value="{{ $product->discount_price }}" id="price" name="price">
-                    <input type="hidden" value="{{ $product->image }}" id="image" name="image">
-                    <input type="hidden" value="{{ $product->slug }}" id="slug" name="slug">
-                    <input type="hidden" value="1" id="quantity" name="quantity">
-                    <button class="cart-btn">
-                    <i class="icon-basket-loaded"></i>
-                    </button>
-                </form>
+                <article>                   
+                  <!-- Product img -->
+                  <div class="media-left">
+                    <div class="item-img"> <img class="img-responsive" src="{{ asset('hamropasal/product/'.$wishlist->product->image) }}" alt="" >  </div>
+                  </div>                  
+                  <!-- Content -->
+                  <div class="media-body">
+                    <div class="row">                       
+                      <!-- Content Left -->
+                      <div class="col-sm-7"> <span class="tag">
+                      	 @if($wishlist->product->subcategories)
+	                    {{ $wishlist->product->subcategories->name}}
+	                    @else
+	                    {{$wishlist->product->categories->name}}
+	                    @endif
+                      </span> <a href="{{route('products.show',['product' =>$wishlist->product->slug])}}" class="tittle">{{$wishlist->product->product_name}}</a> 
+                        <!-- Reviews -->
+                        <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> <i class="fa fa-star"></i> <span class="margin-left-10">5 Review(s)</span></p>
+                        <ul class="bullet-round-list">
+                          <li>{{$wishlist->product->description}}</li>
+                        </ul>
+                      </div>                      
+                      <!-- Content Right -->
+                      <div class="col-sm-5 text-center"> 
+                       <form method="POST" action="{{route('wishlist.destroy',$wishlist->id)}}">
+                       	@csrf
+                       	@method('delete')
+                       	<button class=" a heart"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                       </form>
+                        <div class="position-center-center">
+                          <div class="price">Rs {{ $wishlist->product->discount_price}} </div>
+                          <p>Availability: <span class="in-stock">
+                          	@if($wishlist->product->quantity > 0) 
+                        	In Stock
+                        	@else
+                        	Out of Stock			
+                        	@endif
+                          </span></p>
+                          @if($wishlist->product->quantity > 0) 
+		                  <form action="{{ route('cart.store') }}" method="POST">
+		                    @csrf
+		                   <input type="hidden" value="{{ $wishlist->product->id }}" id="id" name="id">
+		                    <input type="hidden" value="{{ $wishlist->product->product_name }}" id="name" name="name">
+		                    <input type="hidden" value="{{ $wishlist->product->discount_price }}" id="price" name="price">
+		                    <input type="hidden" value="{{ $wishlist->product->image }}" id="image" name="image">
+		                    <input type="hidden" value="{{ $wishlist->product->slug }}" id="slug" name="slug">
+		                    <input type="hidden" value="1" id="quantity" name="quantity">
+		                    <button class=" a btn-round">
+		                    <i class="icon-basket-loaded">
+		                      Add to Cart
+		                    </i>
+		                    </button>
+		                </form>
+		                @else
+		               <li><a href="#"><i class="fa fa-frown-o" aria-hidden="true" style="font-size: 20px;"></i> Product out of Stock</a> 
+		               </li>
+		                @endif
+                       </div>
+                      </div>
+                    </div>
+                  </div>
                 </article>
-              </div>
-              @empty
-                 <h6>No Product Found</h6>
-              @endforelse
+                
+            @empty
+            <p>No Product In Wish List</p>	
+              </div>   
+            <!-- Product -->              
+			 @endforelse
+			 @endif
               <!-- pagination -->
               <ul class="pagination">
-                
+               {{$wishlists->links()}}
               </ul>
             </div>
           </div>
@@ -284,37 +347,5 @@
       </div>
     </section>
   </div>
-<script src="{{ asset('frontend/js/vendors/jquery/jquery.min.js')}}"></script> 
-<script src="{{ asset('frontend/js/vendors/jquery.nouislider.min.js')}}"></script> 
-<script>
-jQuery(document).ready(function($) {
-  
-  //  Price Filter ( noUiSlider Plugin)
-    $("#price-range").noUiSlider({
-    range: {
-      'min': [ {{ $minprice}} ],
-      'max': [ {{ $maxprice}} ]
-    },
-    start: [{{ $minprice}}, {{ $maxprice}}],
-        connect:true,
-        serialization:{
-            lower: [
-        $.Link({
-          target: $("#price-min")
-        })
-      ],
-      upper: [
-        $.Link({
-          target: $("#price-max")
-        })
-      ],
-      format: {
-      // Set formatting
-        prefix: 'Rs'
-      }
-        }
-  })
-})
-
-</script>
+  <!-- End Content --> 
 @endsection

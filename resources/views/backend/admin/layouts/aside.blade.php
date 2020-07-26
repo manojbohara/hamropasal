@@ -139,6 +139,14 @@
               </p>
             </a>
           </li>
+          <li class="nav-item has-treeview">
+          <a href="{{route('orders.index')}}" class="nav-link"> 
+           <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+              <p>
+                Order
+              </p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

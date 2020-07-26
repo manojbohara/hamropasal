@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Model\Category;
 use App\Model\Subcategory;
 use App\Model\Product;
+use App\Model\Size;
+use App\Model\Color;
 use DB;
 class ProductController extends Controller
 {
@@ -19,6 +21,8 @@ class ProductController extends Controller
     {
         $subcategories = Subcategory::all();
         $categories = Category::all();
+        $sizes = Size::all()->pluck('name','id');
+        $colors = Color::all()->pluck('color_name','id');
         if (request()->category) {
             
             $products = Product::with('categories')->whereHas('categories',function($query){
@@ -54,7 +58,7 @@ class ProductController extends Controller
         }
         $maxprice = DB::table('products')->max('discount_price');
         $minprice = DB::table('products')->min('discount_price');
-        return view('frontend.product.index',compact('products','subcategories','subcategoryName','categories','subcat','categoryName','maxprice','minprice'));
+        return view('frontend.product.index',compact('products','subcategories','subcategoryName','categories','subcat','categoryName','maxprice','minprice','sizes','colors'));
     }
 
   

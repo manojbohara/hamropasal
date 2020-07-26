@@ -303,12 +303,12 @@
                   <tbody>
                   @foreach($orders as $order)
                   <tr>
-                    <td><a href="pages/examples/invoice.html">ORHP{{$order->id}}</a></td>
+                    <td><a href="{{ route('orders.show',$order->id) }}">ORHP{{$order->id}}</a></td>
                     <td>{{$order->name}}</td>
                     <td>
                       <div class="sparkbar" data-color="#00a65a" data-height="20">{{$order->billing_total}}</div>
                     </td>
-                    <td><span class="badge badge-success">{{$order->shipped === 0 ? 'pending' :'shipped'}}</span></td>
+                    <td><span class="badge badge-{{$order->shipped ===0 ? 'warning' :'success'}}">{{$order->shipped === 0 ? 'pending' :'shipped'}}</span></td>
                   </tr>
                   @endforeach
                   </tbody>
@@ -319,7 +319,7 @@
             <!-- /.card-body -->
             <div class="card-footer clearfix">
               <a href="javascript:void(0)" class="btn btn-sm btn-info float-left">Place New Order</a>
-              <a href="javascript:void(0)" class="btn btn-sm btn-secondary float-right">View All Orders</a>
+              <a href="{{route('orders.index')}}" class="btn btn-sm btn-secondary float-right">View All Orders</a>
             </div>
             <!-- /.card-footer -->
           </div>

@@ -44,6 +44,7 @@ Route::resource('productsize','ProductSizeController');
 Route::resource('sliders','SliderController');
 Route::resource('contacts','ContactController');
 Route::resource('/blogs','BlogController');
+Route::resource('orders','OrderController');
 });
 Route::group(['namespace'=>'FrontendController'],function(){
 	Route::get('/','WelcomeController');
@@ -70,6 +71,7 @@ Route::group(['namespace'=>'FrontendController'],function(){
 	Route::get('blog/{slug}','BlogController@show')->name('blog.show');
 	Route::post('khalti/verification', 'CheckoutController@transaction')
 	 ->name('khalti.verification');
+	Route::resource('/wishlist','WishListController')->middleware('auth');
 
 });
 

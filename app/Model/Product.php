@@ -54,4 +54,9 @@ class Product extends Model
             return $detail->discount_price * $detail->quantity;
         });
     }
+
+    public function wishlist()
+    {
+        return $this->hasMany(WishList::class);
+    }
 }

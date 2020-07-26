@@ -73,7 +73,11 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $order = Order::findOrFail($id);
+        $order->shipped = 1;
+        $order->save();
+        // redirect to tasks index
+        return redirect()->back()->with('toast_success','Order Updated Successfully');
     }
 
     /**

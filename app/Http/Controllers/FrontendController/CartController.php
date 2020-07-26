@@ -10,6 +10,7 @@ use Darryldecode\Cart\Cart;
 use App\Model\Category;
 use App\Model\Subcategory;
 use App\Model\Coupon;
+use App\Model\Product;
 class CartController extends Controller
 {
     /**
@@ -118,12 +119,9 @@ class CartController extends Controller
         return redirect()->back()->with('toast_error', 'Item is removed!');
     }
 
-    public function saveForLater($id)
+    public function wishlist($id)
     {
-        $item = \Cart::get($id);
-
-        \Cart::remove($id);
-
+        $item =Product::where('id',$id)->get();
         \Cart::add(array(
             'id' => $item->id,
             'name' => $item->name,

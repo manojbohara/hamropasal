@@ -14,7 +14,7 @@
   <header class="header-style-5">
     <div class="container">
       <div class="logo">
-        <a href="{{url('/')}}"><h3 style="margin: 0;"><span style="color: #22c961">Royal </span><span style="font-size: 28px; color: #222222;">OnlineStore</span></h3></a>
+        <a href="{{url('/')}}"><h3 style="margin: 0;"><span style="color: #22c961">Hamro</span><span style="font-size: 28px; color: #222222;">OnlineStore</span></h3></a>
     </div>
       <div class="go-right"> <span class="call-mun"><i class="fa fa-phone"></i> <strong>Hotline:</strong><br>
         {{ $contacts->phone}}</span> 
