@@ -89,7 +89,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-plus-square"></i>
               <p>
-                Attributes
+                 Product Attributes
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -104,12 +104,6 @@
                 <a href="{{route('colors.index')}}" class="nav-link">
                  <i class='fas fa-palette'></i>
                   <p>Colors</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{route('productsize.index')}}" class="nav-link">
-                  <i class='fas fa-hat-wizard'></i>
-                  <p>Product Size</p>
                 </a>
               </li>
               </li>

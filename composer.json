@@ -19,7 +19,7 @@
         "laravelcollective/html": "^6.1",
         "nicolaslopezj/searchable": "^1.13",
         "realrashid/sweet-alert": "^3.1",
-        "stripe/stripe-php": "^7.39",
+        "stripe/stripe-php": "^7.44",
         "willvincent/laravel-rateable": "^2.2"
     },
     "require-dev": {

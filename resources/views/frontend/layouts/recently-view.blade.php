@@ -1,8 +1,14 @@
 <?php
 use App\Model\Product;
 $products = session()->get('products.recently_viewed');
-$recently_viewed =Product::find($products);
+if ($products) {
+  $recently_viewed =Product::find($products);
+} else {
+  $recently_viewed =Product::inRandomOrder()->take(5);
+}
+
 ?>
+
 <!-- Your Recently Viewed Items -->
     <section class="padding-bottom-60">
       <div class="container"> 
@@ -14,6 +20,7 @@ $recently_viewed =Product::find($products);
         </div>
         <!-- Items Slider -->
         <div class="item-slide-5 with-nav">
+
         @foreach($recently_viewed as $product) 
           <!-- Product -->
           <div class="product">

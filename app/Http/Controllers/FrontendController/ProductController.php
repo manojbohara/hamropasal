@@ -58,7 +58,7 @@ class ProductController extends Controller
         }
         $maxprice = DB::table('products')->max('discount_price');
         $minprice = DB::table('products')->min('discount_price');
-        return view('frontend.product.index',compact('products','subcategories','subcategoryName','categories','subcat','categoryName','maxprice','minprice','sizes','colors'));
+        return view('frontend.product.index',compact('products','subcategories','subcategoryName','categories','subcat','categoryName','maxprice','minprice','sizes'));
     }
 
   

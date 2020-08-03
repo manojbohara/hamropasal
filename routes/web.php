@@ -72,6 +72,8 @@ Route::group(['namespace'=>'FrontendController'],function(){
 	Route::post('khalti/verification', 'CheckoutController@transaction')
 	 ->name('khalti.verification');
 	Route::resource('/wishlist','WishListController')->middleware('auth');
+	Route::post('stripe', 'CheckoutController@stripePost')->name('stripe.post');
+	Route::get('checkout-success','CheckoutSuccessController')->name('success');
 
 });
 

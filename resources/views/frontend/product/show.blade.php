@@ -260,59 +260,6 @@
                     <ul class="bullet-round-list">
                       <li>{{ $product->description}}</li>
                     </ul>
-                    <div class="table-responsive">
-                      <table class="table">
-                        <thead>
-                          <tr>
-                            <th>Carrier</th>
-                            <th>Compatibility Rating </th>
-                            <th>Voice / Text </th>
-                            <th>Voice / Text </th>
-                            <th>2G Data </th>
-                            <th>3G Data </th>
-                            <th>4G LTE Data </th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>AT&T </td>
-                            <td>Fully Compatible</td>
-                            <td class="text-center"><i class="fa fa-check"></i></td>
-                            <td class="text-center"><i class="fa fa-check"></i></td>
-                            <td class="text-center"></td>
-                            <td class="text-center"><i class="fa fa-check"></i></td>
-                            <td class="text-center"></td>
-                          </tr>
-                          <tr>
-                            <td>Sprint </td>
-                            <td>No Voice/Text and Partial Data Connection</td>
-                            <td class="text-center"></td>
-                            <td class="text-center"><i class="fa fa-check"></i></td>
-                            <td class="text-center"><i class="fa fa-check"></i></td>
-                            <td class="text-center"><i class="fa fa-check"></i></td>
-                            <td class="text-center"><i class="fa fa-check"></i></td>
-                          </tr>
-                          <tr>
-                            <td>Q-Mobile </td>
-                            <td>Partial Data Connection</td>
-                            <td class="text-center"><i class="fa fa-check"></i></td>
-                            <td class="text-center"><i class="fa fa-check"></i></td>
-                            <td class="text-center"><i class="fa fa-check"></i></td>
-                            <td class="text-center"></td>
-                            <td class="text-center"><i class="fa fa-check"></i></td>
-                          </tr>
-                          <tr>
-                            <td>Verizon Wireless </td>
-                            <td>No Votice/Text and Partial Data Connection</td>
-                            <td class="text-center"><i class="fa fa-check"></i></td>
-                            <td class="text-center"></td>
-                            <td class="text-center"><i class="fa fa-check"></i></td>
-                            <td class="text-center"><i class="fa fa-check"></i></td>
-                            <td class="text-center"><i class="fa fa-check"></i></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
                   </div>
                   <div role="tabpanel" class="tab-pane fade in" id="cus-rev"> 
                       <h5>Hello</h5>

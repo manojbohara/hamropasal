@@ -18,6 +18,7 @@ use Illuminate\Support\Str;
 use Auth;
 use Carbon\Carbon;
 
+
 class CheckoutController extends Controller
 {
     /**
@@ -132,18 +133,6 @@ class CheckoutController extends Controller
                 ],200);
             }
 
-          }else {
-
-             Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-                Stripe\Charge::create ([
-                        "amount" =>session()->get('payment')['totalAmount']/100,
-                        "currency" => "usd",
-                        "source" => $request->stripeToken,
-                        "description" => "Order Payment" 
-                ]);
-        \Cart::clear();  
-        return redirect()->back()->with('toast_success','Your payment was successfully Paided');
-
           }
            
        } catch (Exception $e) {
@@ -151,28 +140,7 @@ class CheckoutController extends Controller
        }
    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+   
 
     public function payment()
     {
@@ -213,5 +181,31 @@ class CheckoutController extends Controller
             'code' =>$code,
 
         ]);
+    }
+
+  public function stripePost(Request $request)
+    {
+        $contents = \Cart::getContent()->map(function ($item) {
+            return $item->model->slug.', '.$item->quantity;
+        })->values()->toJson();
+
+      
+        try {
+           Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+            Stripe\Charge::create ([
+                    "amount" => \Cart::getTotal() / 100,
+                    "currency" => "usd",
+                    "source" => $request->stripeToken,
+                    "description" => "Product Order" ,
+            ]); 
+
+        $this->decreaseQuantities();
+        \Cart::clear();  
+        return redirect()->route('success')->with('toast_success','Your payment was successfully Paided');
+            
+        } catch (CardErrorException $e) {
+           return back()->withErrors('Error! ' . $e->getMessage());  
+        }
+
     }
 }
